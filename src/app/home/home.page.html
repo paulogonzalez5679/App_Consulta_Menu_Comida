@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Segmentos Comida</ion-title>
+
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="pasta" (ionChange)="segmentChanged($event)" >
+      <ion-segment-button value="bebidas" selected>
+        <ion-label>Bebidas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="entradas">
+        <ion-label>Entradas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="postres">
+        <ion-label>Postres</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Cards Bebidas -->
+  <ion-card *ngIf="selectedSegment === 'bebidas'" (click)="cantidadUP('coca')">
+    <img src="../../assets/image/coca.png">
+    <ion-card-header>
+      <ion-card-title value="coca" >Coca Cola</ion-card-title>
+      <ion-card-subtitle>$0.35</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Bebida Coca-cola normal, bebida no alcoholica, 400ml
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'bebidas'" (click)="cantidadUP('milk')">
+    <img src="../../assets/image/milk.jpg">
+    <ion-card-header>
+      <ion-card-title value="milk">Milk Shake</ion-card-title>
+      <ion-card-subtitle>$5.00</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      Milk Shake de galleta oreo, bebida no alcoholica, 500ml
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'bebidas'" (click)="cantidadUP('beer')">
+    <img src="../../assets/image/beer.jpg">
+    <ion-card-header>
+      <ion-card-title value="beer">Cerveza</ion-card-title>
+      <ion-card-subtitle>$3.50</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Bebida alcoholica, 400ml
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Cards Entradas -->
+  <ion-card *ngIf="selectedSegment === 'entradas'" (click)="cantidadUP('camaron')">
+    <img src="../../assets/image/camaron.jpg">
+    <ion-card-header>
+      <ion-card-title>Coctel de camaron</ion-card-title>
+      <ion-card-subtitle>$8.00</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      Coctel de camaron, entrada individual
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'entradas'" (click)="cantidadUP('wrap')">
+    <img src="../../assets/image/wraps salom.jpg">
+    <ion-card-header>
+      <ion-card-title>Wrap de Salmon</ion-card-title>
+      <ion-card-subtitle>$10.00</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      3 wrapps de salmon ahumado
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'entradas'" (click)="cantidadUP('dedos')">
+    <img src="../../assets/image/queso.jpg">
+    <ion-card-header>
+      <ion-card-title>Dedos de queso</ion-card-title>
+      <ion-card-subtitle>$2.50</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      5 dedos de queso acompañados con salsa de la casa
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Cards postres -->
+  <ion-card *ngIf="selectedSegment === 'postres'" (click)="cantidadUP('pie')">
+    <img src="../../assets/image/pie limon.jpg">
+    <ion-card-header>
+      <ion-card-title>Pie de Limon</ion-card-title>
+      <ion-card-subtitle>$5.50</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      Pie de limon de la casa, bajo en azuacares, sin grasas trans
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'postres'" (click)="cantidadUP('ches')">
+    <img src="../../assets/image/maracuya.jpg">
+    <ion-card-header>
+      <ion-card-title>Cheesecake de maracuya</ion-card-title>
+      <ion-card-subtitle>$4.00</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      cheesecake de maracuya relleno con crema pastelera
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="selectedSegment === 'postres'" (click)="cantidadUP('choco')">
+    <img src="../../assets/image/mousse choco.jpg">
+    <ion-card-header>
+      <ion-card-title>Mousse de chocolate</ion-card-title>
+      <ion-card-subtitle>$2.50</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <ion-button>Agregar</ion-button> -->
+      Mousse de chocolate relleno de mermelada de cereza
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Cantidad: </h2>
+      {{cantidadBebida}}
+    </div>
+    <div class="col-sm-6">
+      <h2>Total: </h2>
+      {{precioFinal}}
+    </div>
+  </div>
+</ion-footer>
